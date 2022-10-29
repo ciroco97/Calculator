@@ -91,10 +91,16 @@ substract.addEventListener("click", () => {
 });
 
 multiply.addEventListener("click", () => {
-    holderbis = (+holder);
-    upperDisplay.innerText = holder + " ×";
-    holder = "";
-    sign = "*";
+    if (holderbis === 0) {
+        holderbis = (+holder);
+        upperDisplay.innerText = holder + " ×";
+        holder = "";
+        sign = "*";
+    } else {
+        holderbis *= (+holder);
+        bottomDisplay.innerText = holderbis;
+        holder = "";
+    }
 });
 
 division.addEventListener("click", () => {
