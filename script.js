@@ -134,28 +134,28 @@ equal.addEventListener("click", () => {
     calculo = holderbis + holderbisbis;
     bottomDisplay.innerText = calculo;
     upperDisplay.innerText = `${holderbis} ${sign} ${holderbisbis}`;
-    holder = "";
+    holder = calculo;
     holderbis = 0;
     holderbisbis = 0;
     } else if (sign === "-") {
         calculo = holderbis - holderbisbis;
         bottomDisplay.innerText = calculo;
         upperDisplay.innerText = `${holderbis} ${sign} ${holderbisbis}`;
-        holder = "";
+        holder = calculo;
         holderbis = 0;
         holderbisbis = 0;
     } else if (sign === "/") {
         calculo = holderbis / holderbisbis;
         bottomDisplay.innerText = calculo.toFixed(2);
         upperDisplay.innerText = `${holderbis} ${sign} ${holderbisbis}`;
-        holder = "";
+        holder = calculo;
         holderbis = 0;
         holderbisbis = 0;
     } else if (sign === "*") {
         calculo = holderbis * holderbisbis;
         bottomDisplay.innerText = calculo;
         upperDisplay.innerText = `${holderbis} ${sign} ${holderbisbis}`;
-        holder = "";
+        holder = calculo;
         holderbis = 0;
         holderbisbis = 0;
     }
