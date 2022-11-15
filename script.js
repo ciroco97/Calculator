@@ -77,17 +77,31 @@ zero.addEventListener("click", () => {
 });
 
 sum.addEventListener("click", () => {
-    holderbis = (+holder);
-    upperDisplay.innerText = holder + " +";
-    holder = "";
-    sign = "+";
+    if (holderbis === 0) {
+        holderbis = (+holder);
+        upperDisplay.innerText = holder + " +";
+        holder = "";
+        sign = "+";
+    } else {
+        holderbis += (+holder);
+        bottomDisplay.innerText = holderbis;
+        holder = "";
+        sign = "+";
+    }
 });
 
 substract.addEventListener("click", () => {
-    holderbis = (+holder);
-    upperDisplay.innerText = holder + " -";
-    holder = "";
-    sign = "-";
+    if (holderbis === 0) {
+        holderbis = (+holder);
+        upperDisplay.innerText = holder + " -";
+        holder = "";
+        sign = "-";
+    } else {
+        holderbis -= (+holder);
+        bottomDisplay.innerText = holderbis;
+        holder = "";
+        sign = "-";
+    }
 });
 
 multiply.addEventListener("click", () => {
@@ -100,14 +114,22 @@ multiply.addEventListener("click", () => {
         holderbis *= (+holder);
         bottomDisplay.innerText = holderbis;
         holder = "";
+        sign = "*";
     }
 });
 
 division.addEventListener("click", () => {
-    holderbis = (+holder);
-    upperDisplay.innerText = holder + " /";
-    holder = "";
-    sign = "/";
+    if (holderbis === 0) {
+        holderbis = (+holder);
+        upperDisplay.innerText = holder + " /";
+        holder = "";
+        sign = "/";
+    } else {
+        holderbis /= (+holder);
+        bottomDisplay.innerText = holderbis;
+        holder = "";
+        sign = "/";
+        }
 });
 
 potential.addEventListener("click", () => {
@@ -115,7 +137,8 @@ potential.addEventListener("click", () => {
 });
 
 clear.addEventListener("click", () => {
-    upperDisplay.innerText = holder = "";
+    upperDisplay.innerText = "";
+    holder = "";
     holderbis = "";
     holderbisbis = "";
     sign = "";
@@ -132,6 +155,7 @@ delet.addEventListener("click", () => {
 dot.addEventListener("click", () => {
     upperDisplay.innerText = holder += ".";
 });
+
 
 equal.addEventListener("click", () => {
     holderbisbis = (+holder);
@@ -152,7 +176,11 @@ equal.addEventListener("click", () => {
         holderbisbis = 0;
     } else if (sign === "/") {
         calculo = holderbis / holderbisbis;
-        bottomDisplay.innerText = calculo.toFixed(2);
+        if(calculo % 1 == 0) {
+            bottomDisplay.innerText = calculo;
+        } else {
+            bottomDisplay.innerText = calculo.toFixed(2);
+        }
         upperDisplay.innerText = `${holderbis} ${sign} ${holderbisbis}`;
         holder = calculo;
         holderbis = 0;
